@@ -11,6 +11,8 @@ import android.content.Context
 import android.widget.*
 import com.lebonplant.R
 import com.lebonplant.databinding.FragmentDashboardBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DashboardFragment : Fragment(), AdapterView.OnItemClickListener {
 
@@ -34,15 +36,18 @@ class DashboardFragment : Fragment(), AdapterView.OnItemClickListener {
 
         val testListView: ListView = binding.dynamicList;
 
-        testListView.adapter = ArrayAdapter(activity!!.applicationContext,
-            android.R.layout.simple_list_item_1, arrayOf(
-                "Virat Kohli", "Rohit Sharma", "Steve Smith",
-                "Kane Williamson", "Ross Taylor"
-            )) //TODO replace sample list by API call
+        var elementsContainer = ArrayList(Arrays.asList("Virat Kohli", "Rohit Sharma", "Steve Smith",
+            "Kane Williamson", "Ross Taylor"))
+        var customAdapter = ArrayAdapter(activity!!.applicationContext,
+            android.R.layout.simple_list_item_1, elementsContainer) //TODO replace sample list by API call
 
-        //binding.refreshButton.setOnClickListener(
-            //Toast.makeText(activity!!.applicationContext, "Button Clicked", Toast.LENGTH_SHORT).show()
-        //)
+        testListView.adapter = customAdapter;
+
+        binding.refreshButton.setOnClickListener {
+            Toast.makeText(activity!!.applicationContext, "click", Toast.LENGTH_SHORT).show()
+            elementsContainer.add("New item");
+            customAdapter.notifyDataSetChanged();
+        }
         return root
     }
 
