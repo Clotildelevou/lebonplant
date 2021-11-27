@@ -8,6 +8,9 @@ import android.widget.TextView
 import android.support.v4.app.Fragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
+import android.content.Context
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import com.lebonplant.R
 import com.lebonplant.databinding.FragmentDashboardBinding
 
@@ -35,8 +38,23 @@ class DashboardFragment : Fragment() {
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+        val testListView: ListView = binding.dynamicList;
+
+        val arrayAdapter: ArrayAdapter<*>
+        val users = arrayOf(
+            "Virat Kohli", "Rohit Sharma", "Steve Smith",
+            "Kane Williamson", "Ross Taylor"
+        )
+
+        // access the listView from xml file
+        arrayAdapter = ArrayAdapter(activity!!.applicationContext,
+            android.R.layout.simple_list_item_1, users)
+        testListView.adapter = arrayAdapter
+
         return root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

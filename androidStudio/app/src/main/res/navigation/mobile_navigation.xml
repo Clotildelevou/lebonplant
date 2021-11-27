@@ -21,7 +21,13 @@
         android:id="@+id/navigation_organisation"
         android:name="com.lebonplant.ui.notifications.NotificationsFragment"
         android:label="@string/title_organisation"
-        tools:layout="@layout/fragment_organisation" />
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_message"
+        android:name="com.lebonplant.ui.notifications.NotificationsFragment"
+        android:label="@string/title_message"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_notifications"
