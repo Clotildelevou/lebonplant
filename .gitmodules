@@ -1,0 +1,3 @@
+[submodule "LeBonPlantAPI"]
+	path = LeBonPlantAPI
+	url = git@github.com:LiquidNalee/LeBonPlantAPI.git
