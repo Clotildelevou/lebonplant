@@ -39,20 +39,38 @@ class ForumFragment : Fragment(), AdapterView.OnItemClickListener {
 
 
         val elementsContainer = ArrayList<Post>(Arrays.asList(post1, post2))
+        val hiddenElementsContainer = ArrayList<Post>(Arrays.asList(post1, post2))
 
         var postAdapter = PostAdapter(activity!!.applicationContext, elementsContainer)
 
         testListView.adapter = postAdapter
 
+        binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false;
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterContainer(hiddenElementsContainer,elementsContainer, newText)
+                postAdapter.notifyDataSetChanged()
+                return true
+            }
+
+        })
         binding.refreshButton.setOnClickListener {
             Toast.makeText(activity!!.applicationContext, "click", Toast.LENGTH_SHORT).show()
             elementsContainer.add(post1);
+            hiddenElementsContainer.add(post1);
             postAdapter.notifyDataSetChanged();
         }
         return root
     }
 
-
+    fun filterContainer(src: ArrayList<Post>, dst: ArrayList<Post>, match: String?) {
+        dst.removeAll( { s -> true})
+        dst.addAll(src.filter { p -> if(match == null) true else p.body.contains(match, true)
+                || p.header.contains(match, true)})
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
