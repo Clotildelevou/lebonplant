@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="kaki">#8D8741</color>
+    <color name="blue">#659DBD</color>
+    <color name="beige">#DAAD86</color>
+    <color name="brown">#BC986A</color>
+    <color name="sand">#FBEEC1</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
