@@ -1,4 +1,4 @@
-package com.lebonplant.ui.dashboard
+package com.lebonplant.ui.forum
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import android.support.v4.app.Fragment
 import android.arch.lifecycle.ViewModelProvider
 import android.widget.*
-import com.lebonplant.databinding.FragmentDashboardBinding
+import com.lebonplant.databinding.FragmentForumBinding
 import java.util.*
 import kotlin.collections.ArrayList
 
-class DashboardFragment : Fragment(), AdapterView.OnItemClickListener {
+class ForumFragment : Fragment(), AdapterView.OnItemClickListener {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
-    private var _binding: FragmentDashboardBinding? = null
+    private lateinit var forumViewModel: ForumViewModel
+    private var _binding: FragmentForumBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,10 +25,10 @@ class DashboardFragment : Fragment(), AdapterView.OnItemClickListener {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(DashboardViewModel::class.java)
+        forumViewModel =
+                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ForumViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentForumBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val testListView: ListView = binding.dynamicList;
