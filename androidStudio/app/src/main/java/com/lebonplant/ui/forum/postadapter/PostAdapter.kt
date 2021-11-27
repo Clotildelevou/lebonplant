@@ -32,6 +32,9 @@ class PostAdapter(private val context: Context,
         val subjectView = rowView.findViewById<View>(R.id.post_item_subject) as TextView
         val bodyView = rowView.findViewById<View>(R.id.post_item_body) as TextView
         val avatarView = rowView.findViewById<View>(R.id.post_item_avatar) as ImageView
+        subjectView.setText(dataSource[position].header, TextView.BufferType.NORMAL)
+        bodyView.setText(dataSource[position].body, TextView.BufferType.NORMAL)
+        //avatarView.setImageURI("res/drawable/ic_notifications_black_24dp.xml")
         return rowView
     }
 }
