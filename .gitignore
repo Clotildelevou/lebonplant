@@ -1,3 +1,5 @@
+.idea
+
 *.xcf
 .DS_Store
 .idea/shelf
