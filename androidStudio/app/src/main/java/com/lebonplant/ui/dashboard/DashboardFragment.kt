@@ -5,11 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.support.v4.app.Fragment
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
-import android.content.Context
 import android.widget.*
-import com.lebonplant.R
 import com.lebonplant.databinding.FragmentDashboardBinding
 import java.util.*
 import kotlin.collections.ArrayList
