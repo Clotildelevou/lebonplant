@@ -4,17 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.support.v4.app.Fragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.content.Context
-import android.widget.ArrayAdapter
-import android.widget.ListView
+import android.widget.*
 import com.lebonplant.R
 import com.lebonplant.databinding.FragmentDashboardBinding
 
-class DashboardFragment : Fragment() {
+class DashboardFragment : Fragment(), AdapterView.OnItemClickListener {
 
     private lateinit var dashboardViewModel: DashboardViewModel
     private var _binding: FragmentDashboardBinding? = null
@@ -34,24 +32,17 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-
         val testListView: ListView = binding.dynamicList;
 
-        val arrayAdapter: ArrayAdapter<*>
-        val users = arrayOf(
-            "Virat Kohli", "Rohit Sharma", "Steve Smith",
-            "Kane Williamson", "Ross Taylor"
-        )
+        testListView.adapter = ArrayAdapter(activity!!.applicationContext,
+            android.R.layout.simple_list_item_1, arrayOf(
+                "Virat Kohli", "Rohit Sharma", "Steve Smith",
+                "Kane Williamson", "Ross Taylor"
+            )) //TODO replace sample list by API call
 
-        // access the listView from xml file
-        arrayAdapter = ArrayAdapter(activity!!.applicationContext,
-            android.R.layout.simple_list_item_1, users)
-        testListView.adapter = arrayAdapter
-
+        //binding.refreshButton.setOnClickListener(
+            //Toast.makeText(activity!!.applicationContext, "Button Clicked", Toast.LENGTH_SHORT).show()
+        //)
         return root
     }
 
@@ -59,5 +50,9 @@ class DashboardFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        TODO("Not yet implemented")
     }
 }

@@ -6,7 +6,6 @@ import android.arch.lifecycle.ViewModel
 
 class DashboardViewModel : ViewModel() {
 
-
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"
     }

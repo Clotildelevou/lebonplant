@@ -3,6 +3,7 @@ package com.lebonplant
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.widget.Button
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -28,5 +29,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_maketplace, R.id.navigation_forum, R.id.navigation_organisation))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val api_button = binding.root
+
     }
 }
