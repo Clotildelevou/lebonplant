@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -30,7 +31,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val api_button = binding.root
+        /*val api_button = findViewById<Button>(R.id.refresh_button)
+        api_button.setOnClickListener {
+            Toast.makeText(this, "click", Toast.LENGTH_SHORT).show()
+        }*/
 
     }
 }
