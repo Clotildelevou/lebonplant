@@ -1,0 +1,8 @@
+kaki = #8D8741
+green = #2b5e07
+blue = #659DBD
+beige = #DAAD86
+brown = #BC986A
+sand = #FBEEC1
+black = #FF000000
+white = #FFFFFFFF
