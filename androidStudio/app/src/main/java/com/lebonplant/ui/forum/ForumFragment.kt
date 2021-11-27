@@ -8,8 +8,10 @@ import android.support.v4.app.Fragment
 import android.arch.lifecycle.ViewModelProvider
 import android.widget.*
 import com.lebonplant.databinding.FragmentForumBinding
+import com.lebonplant.ui.forum.postadapter.PostAdapter
 import java.util.*
 import kotlin.collections.ArrayList
+import com.lebonplant.ui.forum.post.Post
 
 class ForumFragment : Fragment(), AdapterView.OnItemClickListener {
 
@@ -31,19 +33,21 @@ class ForumFragment : Fragment(), AdapterView.OnItemClickListener {
         _binding = FragmentForumBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val testListView: ListView = binding.dynamicList;
+        val testListView: ListView = binding.dynamicList
+        val post1: Post = Post(0, "Jean-Rachid", "FIRST", "This is the first post")
+        val post2: Post = Post(1, "Jean-Rachid", "Phewwww", "Sounds like i am alone here")
 
-        var elementsContainer = ArrayList(Arrays.asList("Virat Kohli", "Rohit Sharma", "Steve Smith",
-            "Kane Williamson", "Ross Taylor"))
-        var customAdapter = ArrayAdapter(activity!!.applicationContext,
-            android.R.layout.simple_list_item_1, elementsContainer) //TODO replace sample list by API call
 
-        testListView.adapter = customAdapter;
+        val elementsContainer = ArrayList<Post>(Arrays.asList(post1, post2))
+
+        var postAdapter = PostAdapter(activity!!.applicationContext, elementsContainer)
+
+        testListView.adapter = postAdapter
 
         binding.refreshButton.setOnClickListener {
             Toast.makeText(activity!!.applicationContext, "click", Toast.LENGTH_SHORT).show()
-            elementsContainer.add("New item");
-            customAdapter.notifyDataSetChanged();
+            elementsContainer.add(post1);
+            postAdapter.notifyDataSetChanged();
         }
         return root
     }
