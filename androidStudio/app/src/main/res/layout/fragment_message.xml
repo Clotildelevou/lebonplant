@@ -6,6 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
+        tools:layout_editor_absoluteY="0dp"
+        tools:src="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Bruno"
+        tools:layout_editor_absoluteX="143dp"
+        tools:layout_editor_absoluteY="37dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Sandra"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="161dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
+        tools:layout_editor_absoluteY="128dp"
+        tools:src="@tools:sample/avatars" />
+
     <TextView
         android:id="@+id/text_dashboard"
         android:layout_width="match_parent"
